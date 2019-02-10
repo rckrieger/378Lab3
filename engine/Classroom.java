@@ -16,7 +16,18 @@ public class Classroom extends ScrollingWorld
     public Classroom()
     {
         super(1024, 768, 1, false);
+        this.marcusX = 200;
+        this.marcusY = 600;
         
-        Background bg = new Background();
+        Background bg = (Background)(new ClassroomBackground());
+        GreenfootImage image = bg.getImage();
+        image.scale(image.getWidth()*imageScale/2, image.getHeight()*imageScale/2);
+        bg.setImage(image);
+        this.boundingBG = bg;
+        this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
+        addObject(bg, 0, image.getHeight()/2);
+        
+        Marcus main = new Marcus();
+        addObject(main, marcusX, marcusY);
     }
 }

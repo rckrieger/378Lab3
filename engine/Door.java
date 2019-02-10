@@ -8,17 +8,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Door extends AnimatedActor
 {
-    /**
-     * Act - do whatever the Door wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private ScrollingWorld link;
+    public Door()
+    {
+        //nah
+    }
+    
+    public Door(ScrollingWorld linkTo)
+    {
+        super();
+        this.link = linkTo;
+    }
+    
     public void act() 
     {
         // Add your action code here.
     }
     
-    public void enter()
+    public void enter(Marcus marcus)
     {
-        System.out.println("I hit a door.");
+        link.bring_to_(marcus, (ScrollingWorld)getWorld());
     }
 }

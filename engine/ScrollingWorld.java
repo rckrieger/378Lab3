@@ -15,8 +15,12 @@ public class ScrollingWorld extends World
      */
     protected int imageScale;
     protected int worldWidth;
+    protected Marcus marcus;
+    protected int marcusX;
+    protected int marcusY;
     public Background boundingBG;
     public GreenfootSound bgMusic;
+    protected ScrollingWorld parentWorld;
     
     public ScrollingWorld(int width, int height, int gridSize, boolean bounded)
     {
@@ -48,5 +52,28 @@ public class ScrollingWorld extends World
                 actor.scroll(distance);
             }
         }
+    }
+    
+    protected void pauseWorld()
+    {
+        bgMusic.pause();
+        marcusX = marcus.getX();
+        marcusY = marcus.getY();
+        removeObject(marcus);
+    }
+    
+    protected void resumeWorld()
+    {
+        addObject(marcus, marcusX, marcusY);
+        bgMusic.play();
+    }
+    
+    public void bring_to_(Marcus mercurial, ScrollingWorld from)
+    {
+        marcus = mercurial;
+        parentWorld = from;
+        from.pauseWorld();
+        Greenfoot.setWorld(this);
+        resumeWorld();
     }
 }
