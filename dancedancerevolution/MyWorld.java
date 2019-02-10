@@ -1,5 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Random;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -120,30 +121,20 @@ public class MyWorld extends World
     }
 
     private void addActors() {
-        startTime = System.currentTimeMillis();
-        long spacing = 
-        Down d = new Down();
-        Up u = new Up();
-        Right r = new Right();
-        Left l = new Left();
         Dstat DOWN = new Dstat();
         Ustat UP = new Ustat();
         Rstat RIGHT = new Rstat();
         Lstat LEFT = new Lstat();
-        addObject(d, 250, -100);
-        addObject(u, 375, -200);
-        addObject(r, 500, -250);
-        addObject(l, 120, -300);
+        ArrowGenerator arrowgenerator = new ArrowGenerator();
+        addObject(arrowgenerator, 0, 0);
         addObject(DOWN, 250, 600);
         addObject(UP, 375, 600);
         addObject(RIGHT, 500, 600);
         addObject(LEFT, 120, 600);
-
+    }
         //SPEECH BUBBLE
         //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);
         // addObject(new SpeechBubble("big-bubble.png", forest, -10), 450, 300);
-
-    }
 
     /**
      * Prepare the world for the start of the program.
