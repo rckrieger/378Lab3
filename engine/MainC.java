@@ -18,6 +18,7 @@ public class MainC extends AnimatedActor
     private int deltaY = 2 * delta;
     private Vector speed;
     private Shirt wearing = null;
+    private boolean spacing = false;
     
     public MainC()
     {
@@ -37,19 +38,24 @@ public class MainC extends AnimatedActor
     
     private void interact()
     {
-        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter"))
+        if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
         {
             if (isTouching(Door.class))
             {
                 Door door = (Door)getOneIntersectingObject(Door.class);
                 door.enter();
             }
-            if (isTouching(Shirt.class))
+            else if (isTouching(Shirt.class))
             {
                 ArrayList<Shirt> shirts = (ArrayList<Shirt>)getIntersectingObjects(Shirt.class);
-                if (shirts.size() == 1 && wearing == null)
+                if (shirts.size() == 1)
                 {
-                    putOn(shirts.get(0));
+                    if (wearing == null)
+                    {
+                        putOn(shirts.get(0));
+                    } else {
+                        derobe();
+                    }
                 }
                 else if (shirts.size() == 2 && wearing != null)
                 {
@@ -57,29 +63,37 @@ public class MainC extends AnimatedActor
                 }
             }
         }
+        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter"))
+        {
+            spacing = true;
+        }
+        else
+        {
+            spacing = false;
+        }
     }
     
     private void changeSpeed()
     {
-        int xChange = imageScale * deltaX;
-        int yChange = imageScale * deltaY;
+        int xChange = deltaX;
+        int yChange = deltaY;
         if ((Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")) &&
-            (speed.getX() > -imageScale*deltaX))
+            (speed.getX() > -deltaX))
         {
             speed.changeTo(-xChange, 0);
         }
         else if ((Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("d")) &&
-                 (speed.getX() < imageScale*deltaX))
+                 (speed.getX() < deltaX))
         {
             speed.changeTo(xChange, 0);
         }
         if ((Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("w")) &&
-            (speed.getY() > -imageScale*deltaY))
+            (speed.getY() > -deltaY))
         {
             speed.changeTo(0, -yChange);
         }
         else if ((Greenfoot.isKeyDown("down") || Greenfoot.isKeyDown("s")) &&
-                 (speed.getY() < imageScale*deltaY))
+                 (speed.getY() < deltaY))
         {
             speed.changeTo(0, yChange);
         }
@@ -92,7 +106,7 @@ public class MainC extends AnimatedActor
         int y = getY();
         int vx = speed.getX();
         int vy = speed.getY();
-        int slowFactor = imageScale * delta;
+        int slowFactor = delta;
         String animationType = "stand";
         if (vx == 0 && vy == 0)
         {
@@ -168,11 +182,11 @@ public class MainC extends AnimatedActor
         int maxWidth = ((ScrollingWorld)this.getWorld()).getWorldWidth();
         if (x > upper)
         {
-            ((Hallway)getWorld()).scroll(-imageScale*deltaX);
+            ((Hallway)getWorld()).scroll(-deltaX);
         }
         else if (x < lower)
         {
-            ((Hallway)getWorld()).scroll(imageScale*deltaX);
+            ((Hallway)getWorld()).scroll(deltaX);
         }
     }
     
@@ -209,9 +223,15 @@ public class MainC extends AnimatedActor
             wearing.worn = false;
         }
         this.wearing = toWear;
-        toWear.setLocation(getX(), getY());
-        toWear.animatedStatus = this.animatedStatus;
-        toWear.animatedIndex = this.animatedIndex;
-        toWear.worn = true;
+        wearing.setLocation(getX(), getY());
+        wearing.animatedStatus = this.animatedStatus;
+        wearing.animatedIndex = this.animatedIndex;
+        wearing.worn = true;
+    }
+    
+    private void derobe()
+    {
+        wearing.worn = false;
+        wearing = null;
     }
 }

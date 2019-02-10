@@ -19,7 +19,7 @@ public class Hallway extends ScrollingWorld
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 768, 1, false);
-        Greenfoot.setSpeed(40);
+        Greenfoot.setSpeed(60);
 
         Background bg = new Background();
         GreenfootImage image = bg.getImage();
@@ -28,7 +28,11 @@ public class Hallway extends ScrollingWorld
         this.worldWidth = image.getWidth();
         this.boundingBG = bg;
         addObject(bg, 0, image.getHeight()/2);
-
+        
+        GreenfootSound music = new GreenfootSound("PopulariTee Theme.mp3");
+        this.bgMusic = music;
+        music.play();
+        
         Door door3 = new Door();
         image = door3.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
@@ -38,17 +42,17 @@ public class Hallway extends ScrollingWorld
         image = door2.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door2.setImage(image);
-        addObject(door2, -66*imageScale + 2, bg.getImage().getHeight()/2 - 26*imageScale);
+        addObject(door2, -66*imageScale + 2, bg.getImage().getHeight()/2 - 31*imageScale);
         Door door4 = new Door();
         image = door4.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door4.setImage(image);
-        addObject(door4, 567*imageScale - 3, bg.getImage().getHeight()/2 - 26*imageScale);
+        addObject(door4, 567*imageScale - 3, bg.getImage().getHeight()/2 - 31*imageScale);
         Door door1 = new Door();
         image = door1.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door1.setImage(image);
-        addObject(door1, -566*imageScale - 3, bg.getImage().getHeight()/2 - 26*imageScale);
+        addObject(door1, -566*imageScale - 3, bg.getImage().getHeight()/2 - 31*imageScale);
 
         MainC main = new MainC();
         addObject(main, 512, 600);
