@@ -16,6 +16,7 @@ public class ScrollingWorld extends World
     protected int imageScale;
     protected int worldWidth;
     public Background boundingBG;
+    public GreenfootSound bgMusic;
     
     public ScrollingWorld(int width, int height, int gridSize, boolean bounded)
     {
