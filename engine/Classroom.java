@@ -8,16 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Classroom extends ScrollingWorld
 {
-
-    /**
-     * Constructor for objects of class Classroom.
-     * 
-     */
     public Classroom(ScrollingWorld returnTo)
     {
         super(1024, 768, 1, false);
-        this.marcusX = 600;
-        this.marcusY = 300;
+        this.marcusX = 900;
+        this.marcusY = 500;
         setPaintOrder(DeskRow.class, Shirt.class, Marcus.class, ClassroomBackground.class);
         
         Background bg = (Background)(new ClassroomBackground());

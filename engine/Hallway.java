@@ -43,7 +43,7 @@ public class Hallway extends ScrollingWorld
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door3.setImage(image);
         addObject(door3, 65*imageScale + 2, bg.getImage().getHeight()/2 - 31*imageScale);
-        Door door2 = (Door)(new HallwayDoorM((ScrollingWorld)(new Classroom((ScrollingWorld)this))));
+        Door door2 = (Door)(new HallwayDoorM((ScrollingWorld)(new Gym((ScrollingWorld)this))));
         image = door2.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door2.setImage(image);
