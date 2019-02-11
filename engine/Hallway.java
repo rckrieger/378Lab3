@@ -25,6 +25,7 @@ public class Hallway extends ScrollingWorld
         Greenfoot.setSpeed(60);
         this.marcusX = 400;
         this.marcusY = 600;
+        setPaintOrder(Shirt.class, Marcus.class, Door.class, Background.class);
 
         Background bg = (Background)(new HallwayBackground());
         GreenfootImage image = bg.getImage();
@@ -37,22 +38,22 @@ public class Hallway extends ScrollingWorld
         GreenfootSound music = new GreenfootSound("PopulariTee Theme.mp3");
         this.bgMusic = music;
         
-        Door door3 = (Door)(new HallwayDoor((ScrollingWorld)(new Classroom())));
+        Door door3 = (Door)(new HallwayDoor((ScrollingWorld)(new Classroom((ScrollingWorld)this))));
         image = door3.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door3.setImage(image);
         addObject(door3, 65*imageScale + 2, bg.getImage().getHeight()/2 - 31*imageScale);
-        Door door2 = (Door)(new HallwayDoorM((ScrollingWorld)(new Classroom())));
+        Door door2 = (Door)(new HallwayDoorM((ScrollingWorld)(new Classroom((ScrollingWorld)this))));
         image = door2.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door2.setImage(image);
         addObject(door2, -66*imageScale + 2, bg.getImage().getHeight()/2 - 26*imageScale);
-        Door door4 = (Door)(new HallwayDoorM((ScrollingWorld)(new Classroom())));
+        Door door4 = (Door)(new HallwayDoorM((ScrollingWorld)(new Classroom((ScrollingWorld)this))));
         image = door4.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door4.setImage(image);
         addObject(door4, 567*imageScale - 3, bg.getImage().getHeight()/2 - 26*imageScale);
-        Door door1 = (Door)(new HallwayDoor((ScrollingWorld)(new Classroom())));
+        Door door1 = (Door)(new HallwayDoor((ScrollingWorld)(new Classroom((ScrollingWorld)this))));
         image = door1.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         door1.setImage(image);

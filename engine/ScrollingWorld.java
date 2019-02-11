@@ -15,6 +15,7 @@ public class ScrollingWorld extends World
      */
     protected int imageScale;
     protected int worldWidth;
+    protected Shirt worn;
     protected Marcus marcus;
     protected int marcusX;
     protected int marcusY;
@@ -59,12 +60,21 @@ public class ScrollingWorld extends World
         bgMusic.pause();
         marcusX = marcus.getX();
         marcusY = marcus.getY();
+        if (marcus.wearing != null)
+        {
+            worn = marcus.wearing;
+            removeObject(worn);
+        }
         removeObject(marcus);
     }
     
     protected void resumeWorld()
     {
         addObject(marcus, marcusX, marcusY);
+        if (marcus.wearing != null)
+        {
+            addObject(marcus.wearing, marcusX, marcusY);
+        }
         bgMusic.play();
     }
     

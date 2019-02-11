@@ -17,7 +17,7 @@ public class Marcus extends AnimatedActor
     private int deltaX = 3 * delta;
     private int deltaY = 2 * delta;
     private Vector speed;
-    private Shirt wearing = null;
+    public Shirt wearing = null;
     private boolean spacing = false;
     
     public Marcus()

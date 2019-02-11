@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ClassroomDoor extends Door
 {
+    public ClassroomDoor()
+    {
+        super();
+    }
+    
     public ClassroomDoor(ScrollingWorld link)
     {
         super(link);
