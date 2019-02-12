@@ -19,6 +19,7 @@ public class Marcus extends CoolActor
     private Vector speed;
     public Shirt wearing = null;
     private boolean spacing = false;
+    public boolean ddrmode = false;
     
     public Marcus()
     {
@@ -30,12 +31,19 @@ public class Marcus extends CoolActor
     
     public void act() 
     {
-        interact();
-        changeSpeed();
-        checkScroll();
-        moveCharacter();
+        if (!ddrmode){
+            interact();
+            changeSpeed();
+            checkScroll();
+            moveCharacter();
+        }
+        else 
+        {
+
+        }        
+          
     }
-    
+
     private void interact()
     {
         if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
