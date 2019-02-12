@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Gym extends ScrollingWorld
 {
+    
     public Gym(ScrollingWorld returnTo)
     {
         super(1024, 768, 1, false);
@@ -35,5 +36,10 @@ public class Gym extends ScrollingWorld
         door2.setImage(image);
         addObject(door2, 2107, 283);
         
+       Athlete Jim = new Athlete();
+       addObject(Jim, 120, 600);
+
+        
     }
+    
 }
