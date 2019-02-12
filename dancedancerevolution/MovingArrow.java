@@ -48,7 +48,6 @@ public class MovingArrow extends PhysicsActor
     {
         try {
             move();
-            arrowKeys();
         }
         catch(IllegalStateException ex) {}
         catch(NullPointerException ex) {}
@@ -93,30 +92,8 @@ public class MovingArrow extends PhysicsActor
         setLocation((int)(getX()), (int)(getY()+yspeed));
         yspeed += GRAVITY;
     }
-  
-    private void checkHit()
-    {
-        Stationary overlap = (Stationary)getOneIntersectingObject(Stationary.class);
-        if(overlap != null)
-        {
-            world.addPoint();
-            world.removeObject(this);
-        }
-        else {
-            world.subtractPoint();
-        }
-        //         ((MyWorld)getWorld()).playSound("sounds/coin.wav");
-
-    }
-    private void arrowKeys()
-    {
-        if(Greenfoot.isKeyDown("left")) checkHit();
-        if(Greenfoot.isKeyDown("right")) checkHit();
-        if(Greenfoot.isKeyDown("up")) checkHit();
-        if(Greenfoot.isKeyDown("down")) checkHit();
-    }
+ 
      /**
      * Control the ball using the arrow keys
      */
-   
 }

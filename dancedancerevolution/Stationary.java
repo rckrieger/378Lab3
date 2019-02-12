@@ -21,6 +21,5 @@ public class Stationary extends Arrow
     }
     public void act() 
     {
-
     }      
 }

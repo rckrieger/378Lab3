@@ -12,9 +12,15 @@ public class Down extends MovingArrow
      * Act - do whatever the down wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private MyWorld world;
+    public void addedToWorld (World world)
+    {
+        this.world = (MyWorld) world;
+    }
+    
     public void act() 
     {
         super.act();
         // Add your action code here.
-    }    
+    } 
 }

@@ -15,16 +15,18 @@ public class MyWorld extends World
     public static final int MAXLEVEL = 11;
     /** The time to wait between each level */
     public static final int DELAY = 30;
-    private int score;
+    private int score = 0;
     private final ArrayList<CollisionActor> allCollisionActors;
     private int cameraOffsetX, cameraOffsetY;
     private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
     //private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
-
     /**
      * Create a new world.
      */
+    public int getScore(){
+        return score;
+    }
     public MyWorld()
     {    
         super(1024, 768, 1);        
@@ -126,11 +128,13 @@ public class MyWorld extends World
         Rstat RIGHT = new Rstat();
         Lstat LEFT = new Lstat();
         ArrowGenerator arrowgenerator = new ArrowGenerator();
+        Score scoreDisplay  = new Score();
         addObject(arrowgenerator, 0, 0);
         addObject(DOWN, 250, 600);
         addObject(UP, 375, 600);
         addObject(RIGHT, 500, 600);
         addObject(LEFT, 120, 600);
+        addObject(scoreDisplay, 850, 100);
     }
         //SPEECH BUBBLE
         //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);

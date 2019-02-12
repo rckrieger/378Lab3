@@ -8,6 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Right extends MovingArrow
 {
+    private MyWorld world;
+    public void addedToWorld (World world)
+    {
+        this.world = (MyWorld) world;
+    }
     /**
      * Act - do whatever the Right wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,5 +21,5 @@ public class Right extends MovingArrow
     {
         // Add your action code here.
         super.act();
-    }    
+    }
 }
