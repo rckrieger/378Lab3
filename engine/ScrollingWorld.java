@@ -15,8 +15,13 @@ public class ScrollingWorld extends World
      */
     protected int imageScale;
     protected int worldWidth;
+    protected Shirt worn;
+    protected Marcus marcus;
+    protected int marcusX;
+    protected int marcusY;
     public Background boundingBG;
     public GreenfootSound bgMusic;
+    protected ScrollingWorld parentWorld;
     
     public ScrollingWorld(int width, int height, int gridSize, boolean bounded)
     {
@@ -48,5 +53,37 @@ public class ScrollingWorld extends World
                 actor.scroll(distance);
             }
         }
+    }
+    
+    protected void pauseWorld()
+    {
+        bgMusic.pause();
+        marcusX = marcus.getX();
+        marcusY = marcus.getY();
+        if (marcus.wearing != null)
+        {
+            worn = marcus.wearing;
+            removeObject(worn);
+        }
+        removeObject(marcus);
+    }
+    
+    protected void resumeWorld()
+    {
+        addObject(marcus, marcusX, marcusY);
+        if (marcus.wearing != null)
+        {
+            addObject(marcus.wearing, marcusX, marcusY);
+        }
+        bgMusic.play();
+    }
+    
+    public void bring_to_(Marcus mercurial, ScrollingWorld from)
+    {
+        marcus = mercurial;
+        parentWorld = from;
+        from.pauseWorld();
+        Greenfoot.setWorld(this);
+        resumeWorld();
     }
 }

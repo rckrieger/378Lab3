@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ScrollingWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ ScrollingWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ScrollingWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=width\ height\ gridSize\ bounded
 comment1.target=ScrollingWorld(int,\ int,\ int,\ boolean)
 comment2.params=
@@ -9,4 +9,10 @@ comment3.params=
 comment3.target=int\ getWorldWidth()
 comment4.params=distance
 comment4.target=void\ scroll(int)
-numComments=5
+comment5.params=
+comment5.target=void\ pauseWorld()
+comment6.params=
+comment6.target=void\ resumeWorld()
+comment7.params=mercurial\ from
+comment7.target=void\ bring_to_(Marcus,\ ScrollingWorld)
+numComments=8
