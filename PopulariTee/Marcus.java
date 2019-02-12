@@ -19,6 +19,8 @@ public class Marcus extends CoolActor
     private Vector speed;
     public Shirt wearing = null;
     private boolean spacing = false;
+    private int idling = 0;
+    private int idleCycle = 20*imageScale;
     public boolean ddrmode = false;
     
     public Marcus()
@@ -31,19 +33,15 @@ public class Marcus extends CoolActor
     
     public void act() 
     {
-        if (!ddrmode){
+        if (!ddrmode)
+        {
             interact();
             changeSpeed();
             checkScroll();
             moveCharacter();
         }
-        else 
-        {
-
-        }        
-          
     }
-
+    
     private void interact()
     {
         if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
@@ -118,8 +116,9 @@ public class Marcus extends CoolActor
         String animationType = "stand";
         if (vx == 0 && vy == 0)
         {
-            //No movement to be done.
+            animationType = doIdle();
         } else {
+            idling = 0;
             if (vy != 0)
             {
                 y += (safeToMove(0, vy)) ? vy : 0;
@@ -142,9 +141,35 @@ public class Marcus extends CoolActor
         animate(animationType);
         if (wearing != null)
         {
-            wearing.animate(animationType+wearing.colorText);
+            wearing.animate(animationType);
         }
         return;
+    }
+    
+    private String doIdle()
+    {
+        if (++idling > idleCycle)
+        {
+            if (idling > idleCycle+4*imageScale)
+            {
+                idling = 0;
+            }
+            switch (wearing.colorText)
+            {
+                case "red":
+                    return "nerves";
+                case "black":
+                    return "annoyed";
+                case "yellow":
+                    return "blink";
+                case "purple":
+                case "blue":
+                default:
+                    return "stand";
+                
+            }
+        }
+        return "stand";
     }
     
     private boolean safeToMove(int dX, int dY)
@@ -202,8 +227,10 @@ public class Marcus extends CoolActor
     {
         ArrayList<GreenfootImage> spriteCycle = new ArrayList<GreenfootImage>();
         ArrayList<GreenfootImage> spriteCycleR = new ArrayList<GreenfootImage>();
+        ArrayList<GreenfootImage> blinkCycle = new ArrayList<GreenfootImage>();
         GreenfootImage image;
-        for (int i = 0; i < animatedCycle; i++)
+        GreenfootImage image2;
+        for (int i = 0; i < 3; i++)
         {
             image = new GreenfootImage("walk"+i+fileSuffix);
             image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
@@ -211,14 +238,41 @@ public class Marcus extends CoolActor
             image = new GreenfootImage(image);
             image.mirrorHorizontally();
             spriteCycleR.add(image);
+            image = new GreenfootImage("blink"+i+fileSuffix);
+            image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
+            blinkCycle.add(image);
         }
+        spriteCycle.add(spriteCycle.get(1));
+        spriteCycleR.add(spriteCycleR.get(1));
+        blinkCycle.add(blinkCycle.get(1));
         animations.put("walkR", new ArrayList<GreenfootImage>(spriteCycle));
         animations.put("walkL", new ArrayList<GreenfootImage>(spriteCycleR));
+        animations.put("blink", new ArrayList<GreenfootImage>(blinkCycle));
         spriteCycle = new ArrayList<GreenfootImage>();
+        image = new GreenfootImage("annoyed0"+fileSuffix);
+        image2 = new GreenfootImage("annoyed1"+fileSuffix);
+        image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
+        image2.scale(image2.getWidth()*imageScale, image2.getHeight()*imageScale);
+        spriteCycle.add(image);
+        spriteCycle.add(image2);
+        spriteCycle.add(image2);
+        spriteCycle.add(image2);
+        animations.put("annoyed", new ArrayList<GreenfootImage>(spriteCycle));
+        spriteCycle = new ArrayList<GreenfootImage>();
+        image = new GreenfootImage("nerves0"+fileSuffix);
+        image2 = new GreenfootImage("nerves1"+fileSuffix);
+        image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
+        image2.scale(image2.getWidth()*imageScale, image2.getHeight()*imageScale);
+        spriteCycle.add(image);
+        spriteCycle.add(image2);
+        spriteCycle.add(image);
+        spriteCycle.add(image2);
+        animations.put("nerves", new ArrayList<GreenfootImage>(spriteCycle));
+        spriteCycle = new ArrayList<GreenfootImage>();
+        image = new GreenfootImage("stand"+fileSuffix);
+        image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
         for (int i = 0; i < animatedCycle; i++)
         {
-            image = new GreenfootImage("stand"+i+fileSuffix);
-            image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
             spriteCycle.add(image);
         }
         animations.put("stand", new ArrayList<GreenfootImage>(spriteCycle));
