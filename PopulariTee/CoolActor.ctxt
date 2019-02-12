@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=CoolActor
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Walker\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=CoolActor()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=type
+comment3.target=void\ animate(java.lang.String)
+comment4.params=image\ toChange\ newColor
+comment4.target=void\ colorCycle(greenfoot.GreenfootImage,\ greenfoot.Color,\ greenfoot.Color)
+comment5.params=image\ toKeep
+comment5.target=void\ colorIsolate(greenfoot.GreenfootImage,\ greenfoot.Color)
+numComments=6
