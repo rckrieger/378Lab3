@@ -43,12 +43,12 @@ public class ScrollingWorld extends World
     
     public int getWorldWidth()
     {
-        return worldWidth;
+        return boundingBG.getImage().getWidth();
     }
     
     public void scroll(int distance)
     {
-        int width = boundingBG.getImage().getWidth();
+        int width = getWorldWidth();
         int left  = width/2 - distance;
         int right = -width/2 - distance + getWidth();
         int x = boundingBG.getX();

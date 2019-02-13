@@ -24,12 +24,14 @@ public class ChallengeGym extends CollisionWorld
     
     public void addActors()
     {
-        addObject(new Banana(), 400, 700);
-        addObject(new Banana(), 800, 700);
-        addObject(new Banana(), 1100, 700);
-        addObject(new Banana(), 1400, 700);
-        addObject(new Banana(), 1500, 700);
-        addObject(new BasketBall(), 70, 100);
+        Background bg = (Background)(new GymBackground());
+        GreenfootImage image = bg.getImage();
+        addObject(bg, image.getWidth()/2, image.getHeight()/2);
+        this.boundingBG = bg; 
+      //  addObject(new Banana(), 400, 700);
+      //  addObject(new Banana(), 1100, 700);
+      //  addObject(new Banana(), 1500, 700);
+        addObject(new BasketBall(), 70, 210);
 
     }
 

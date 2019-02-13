@@ -6,17 +6,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class CollisionActor extends AnimatedActor
+public class CollisionActor extends ScrollingActor
 {
     public CollisionActor()
     {
         super();
     }
     
-    public CollisionActor(String basename, String suffix, int noOfImages, int delay)
+    /*public CollisionActor(String basename, String suffix, int noOfImages, int delay)
     {
         super(basename, suffix, noOfImages, delay);
-    }
+    }*/
     
     @Override
     protected void addedToWorld(World world)

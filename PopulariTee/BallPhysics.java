@@ -35,7 +35,7 @@ public class BallPhysics extends CollisionActor
     
     public BallPhysics(String basename, String suffix, int noOfImages, int delay)
     {
-        super(basename, suffix, noOfImages, delay);
+        //super(basename, suffix, noOfImages, delay);
         
         velocity = new Vec2D();
         onGround = false;
@@ -57,7 +57,9 @@ public class BallPhysics extends CollisionActor
         oldXPos = getX();
         oldYPos = getY();
         newXPos = (int)(getX() + velocity.x + 0.5f);
-        newYPos = (int)(getY() + velocity.y + 0.5f);
+        //newYPos = (int)(getY() + velocity.y + 0.5f);
+       newYPos = (int)(getY() + velocity.y + 0.5f);
+
         setLocation(newXPos, newYPos);
         
         ArrayList<CollisionActor> collisionActors = ((ChallengeGym)getWorld()).getCollisionActors();
