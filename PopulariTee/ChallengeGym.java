@@ -17,9 +17,6 @@ public class ChallengeGym extends CollisionWorld
     {
         super(1024, 768, 1, false); 
         addActors();
-        worldWidth = super.getWidth();
-        worldHeight = super.getHeight();
-
     }
     
     public void addActors()

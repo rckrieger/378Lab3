@@ -15,7 +15,13 @@ public class Banana extends CollisionActor
     public void act() 
     {
     
-    }   
+    }  
+    public Banana()
+    {
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth()/4, image.getHeight()/4);
+        setImage(image);
+    }
     public void checkForTripping()
     {
         BasketBall n = (BasketBall)getOneIntersectingObject(BasketBall.class); 

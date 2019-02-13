@@ -20,7 +20,7 @@ public class BasketBall extends BallPhysics
     public BasketBall()
     {
         GreenfootImage image = getImage();
-        image.scale(image.getWidth()/3, image.getHeight()/3);
+        image.scale(image.getWidth()/4, image.getHeight()/4);
         setImage(image);
         reset();
     }
