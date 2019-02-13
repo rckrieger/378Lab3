@@ -16,7 +16,6 @@ public class DDRWorld extends CollisionWorld
     /** The time to wait between each level */
     public static final int DELAY = 30;
     private int score = 0;
-    private final ArrayList<CollisionActor> allCollisionActors;
     private int cameraOffsetX, cameraOffsetY;
     private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
@@ -37,7 +36,6 @@ public class DDRWorld extends CollisionWorld
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         this.marcusX = 900;
         this.marcusY = 500;
-        allCollisionActors = new ArrayList<CollisionActor>();
         addActors();
         worldWidth = getWidth();
         worldHeight = getHeight();
@@ -64,21 +62,7 @@ public class DDRWorld extends CollisionWorld
         score -= 5;
     }
     
-    public ArrayList<CollisionActor> getCollisionActors()
-    {
-        return allCollisionActors;
-    }
 
-    @Override
-    public void removeObject(Actor object) 
-    {
-        super.removeObject(object);
-
-        if(object instanceof CollisionActor)
-        {
-            allCollisionActors.remove(object);
-        }
-    }
 
     public int getCameraX()
     {
