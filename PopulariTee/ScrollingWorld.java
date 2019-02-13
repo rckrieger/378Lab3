@@ -90,4 +90,13 @@ public class ScrollingWorld extends World
         Greenfoot.setWorld(this);
         resumeWorld();
     }
+    
+    public void bring_back(Marcus mercurial, ScrollingWorld from)
+    {
+        marcus = mercurial;
+        from.pauseWorld();
+        Greenfoot.setWorld(this);
+        resumeWorld();
+    }
+    
 }
