@@ -79,7 +79,13 @@ public class Marcus extends CoolActor
                 }
             }
         }
-        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter"))
+        if (!spacing && Greenfoot.isKeyDown("i"))
+        {
+            Color color = (wearing != null) ? wearing.color : Color.WHITE;
+            SpeechBubble derp = new SpeechBubble("I am what\nI wear!", this, 36, color, 5);
+            getWorld().addObject(derp, 0, 0);
+        }
+        if (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter") || Greenfoot.isKeyDown("i"))
         {
             spacing = true;
         }

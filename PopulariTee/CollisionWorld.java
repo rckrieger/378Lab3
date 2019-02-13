@@ -8,11 +8,9 @@ import java.util.ArrayList;
  */
 public class CollisionWorld extends ScrollingWorld
 {
-
-    /**
-     * Constructor for objects of class CollisionWorld.
-     * 
-     */
+    protected int cameraOffsetX, cameraOffsetY;
+    public int worldX, worldY, worldWidth, worldHeight;
+    
     private final ArrayList<CollisionActor> allCollisionActors;
     @Override
     public void removeObject(Actor object) 
@@ -24,13 +22,63 @@ public class CollisionWorld extends ScrollingWorld
             allCollisionActors.remove(object);
         }
     }
+    
     public ArrayList<CollisionActor> getCollisionActors()
     {
         return allCollisionActors;
     }
+    
     public CollisionWorld(int x, int y,int z,boolean bool)
     {
         super(x, y, z, bool);
         allCollisionActors = new ArrayList<CollisionActor>();
+    }
+    
+    public int getCameraX()
+    {
+        return cameraOffsetX;
+    }
+
+    public int getCameraY()
+    {
+        return cameraOffsetY;
+    }
+
+    public void setCameraX(int x)
+    {
+        cameraOffsetX = x;
+    }
+
+    public void setCameraY(int y)
+    {
+        cameraOffsetY = y;
+    }
+
+    public void setWorldDimensions(int x, int y, int width, int height)
+    {
+        worldX = x;
+        worldY = y;
+        worldWidth = width;
+        worldHeight = height;
+    }
+    
+    public int getWorldX()
+    {
+        return worldX;
+    }
+
+    public int getWorldY()
+    {
+        return worldY;
+    }
+
+    public int getWorldWidth()
+    {
+        return worldWidth;
+    }
+
+    public int getWorldHeight()
+    {
+        return worldHeight;
     }
 }

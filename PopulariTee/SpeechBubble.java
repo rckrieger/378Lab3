@@ -16,12 +16,15 @@ public class SpeechBubble extends ScrollingActor
     private long startTime;
     private String picture;
     
-    public SpeechBubble(String text, Actor a, double timer)
+    public SpeechBubble(String text, Actor a, int size, Color textColor, double timer)
     {
         this.attachedTo = a;
-        image = new GreenfootImage(text);
+        GreenfootImage bubble = new GreenfootImage("bubble.png");
+        bubble.scale(200, 150);
+        image = new GreenfootImage(text, size, textColor, null, Color.BLACK);
         picture = text;
-        this.setImage(image);
+        bubble.drawImage(image, 20, 30);
+        this.setImage(bubble);
         this.timer = timer * 1000;
         this.startTime = System.currentTimeMillis();
     }

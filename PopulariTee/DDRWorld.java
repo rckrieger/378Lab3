@@ -16,8 +16,6 @@ public class DDRWorld extends CollisionWorld
     /** The time to wait between each level */
     public static final int DELAY = 30;
     private int score = 0;
-    private int cameraOffsetX, cameraOffsetY;
-    private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
     public boolean DDRmode = false;
     public int DDRspeed = 44;
@@ -33,7 +31,7 @@ public class DDRWorld extends CollisionWorld
     public DDRWorld(ScrollingWorld returnTo)
     {    
         super(1024, 768, 1, false); 
-        setPaintOrder(MovingArrow.class, Stationary.class, Shirt.class, Marcus.class, Drama.class, Dramette.class, Score.class, Background.class);
+        setPaintOrder(MovingArrow.class, Stationary.class, SpeechBubble.class, Shirt.class, Marcus.class, Drama.class, Dramette.class, Score.class, Background.class);
         this.parentWorld = returnTo;
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         this.marcusX = 900;
@@ -55,6 +53,9 @@ public class DDRWorld extends CollisionWorld
         image.scale(image.getWidth()*imageScale/4, image.getHeight()*imageScale/4);
         dramette.setImage(image);
         addObject(dramette, 850, 450);
+        
+        SpeechBubble drametteChallenge = new SpeechBubble("We'll only be voting\nfor a TRUE connoisseur\nof the arts!", dramette, 18, Color.BLACK, 15);
+        addObject(drametteChallenge, 0, 0);
     }
 
     /**
@@ -64,57 +65,10 @@ public class DDRWorld extends CollisionWorld
     {
         score += 5;
     }
+    
     public void subtractPoint()
     {
         score -= 5;
-    }
-
-    public int getCameraX()
-    {
-        return cameraOffsetX;
-    }
-
-    public int getCameraY()
-    {
-        return cameraOffsetY;
-    }
-
-    public void setCameraX(int x)
-    {
-        cameraOffsetX = x;
-    }
-
-    public void setCameraY(int y)
-    {
-        cameraOffsetY = y;
-    }
-
-    public void setWorldDimensions(int x, int y, int width, int height)
-    {
-        worldX = x;
-        worldY = y;
-        worldWidth = width;
-        worldHeight = height;
-    }
-
-    public int getWorldX()
-    {
-        return worldX;
-    }
-
-    public int getWorldY()
-    {
-        return worldY;
-    }
-
-    public int getWorldWidth()
-    {
-        return worldWidth;
-    }
-
-    public int getWorldHeight()
-    {
-        return worldHeight;
     }
 
     public void addActors() {

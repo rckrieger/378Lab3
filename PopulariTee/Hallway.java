@@ -24,7 +24,7 @@ public class Hallway extends ScrollingWorld
         super(1024, 768, 1, false);
         this.marcusX = 400;
         this.marcusY = 600;
-        setPaintOrder(Shirt.class, Marcus.class, Door.class, Background.class);
+        setPaintOrder(Shirt.class, Marcus.class, SpeechBubble.class, Door.class, Background.class);
 
         Background bg = (Background)(new HallwayBackground());
         GreenfootImage image = bg.getImage();
@@ -76,5 +76,8 @@ public class Hallway extends ScrollingWorld
 
         Shirt shirtBlack = new Shirt("black", Color.BLACK);
         addObject(shirtBlack, 1500, 600);
+        
+        SpeechBubble derp = new SpeechBubble("I am what\nI wear!", main, 36, Color.WHITE, 10);
+        addObject(derp, 0, 0);
     }
 }
