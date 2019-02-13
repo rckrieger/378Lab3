@@ -135,6 +135,8 @@ public class DDRWorld extends ScrollingWorld
         Lstat LEFT = new Lstat();
         ArrowGenerator arrowgenerator = new ArrowGenerator();
         Score scoreDisplay  = new Score();
+        GreenfootImage image = new GreenfootImage(1,1);
+        scoreDisplay.setImage(image);
         Background bg = (Background)(new DDRBackground());
         this.boundingBG = bg;
         addObject(bg, bg.getImage().getWidth()/2, bg.getImage().getHeight()/2);
@@ -144,6 +146,15 @@ public class DDRWorld extends ScrollingWorld
         addObject(RIGHT, 500, 700);
         addObject(LEFT, 120, 700);
         addObject(scoreDisplay, 850, 100);
+    }
+    
+    public void hideScore()
+    {
+        java.util.List<Score> scores = getObjects(Score.class);
+        if (scores.size() > 0)
+        {
+            removeObject(scores.get(0));
+        }
     }
         //SPEECH BUBBLE
         //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);

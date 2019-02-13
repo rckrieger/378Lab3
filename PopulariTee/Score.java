@@ -24,7 +24,7 @@ public class Score extends Actor
         if (world.DDRmode)
         {
             String scoreValue = Integer.toString(world.getScore());
-            GreenfootImage temp = new GreenfootImage(scoreValue, 30, Color.RED, null);
+            GreenfootImage temp = new GreenfootImage(scoreValue, 64, new Color(10, 120, 160), null, Color.BLACK);
             setImage(temp);
         }
         //temp.drawString(scoreValue, int x, int y)

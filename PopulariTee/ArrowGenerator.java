@@ -35,7 +35,11 @@ public class ArrowGenerator extends Actor
             }
             else
             {
+                world.hideScore();
                 world.getMarcus().theatreScore = world.getScore();
+                world.DDRmode = false;
+                world.getMarcus().DDRmode = false;
+                Greenfoot.setSpeed(world.speed);
             }
         }
     } 

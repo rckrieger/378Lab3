@@ -71,7 +71,6 @@ public class BasketBall extends BallPhysics
             WinGym w = new WinGym();
             Greenfoot.setWorld(w);
         }
-        }
         else if(getY()>=750) {
             yspeed *= -1;
             setLocation(getX(), getY()+3);

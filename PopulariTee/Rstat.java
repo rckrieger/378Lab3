@@ -16,7 +16,8 @@ public class Rstat extends Stationary
      */
     public void act() 
     {
-        arrowKeys();
+        if (world.DDRmode)
+            arrowKeys();
     }    
     public void addedToWorld (World world)
     {
