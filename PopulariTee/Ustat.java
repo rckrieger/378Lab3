@@ -24,7 +24,7 @@ public class Ustat extends Stationary
     }
     private void arrowKeys()
     {
-        if(pressingKey("up") || pressingKey("w")) checkHit();
+        if(pressingKey("up", "w")) checkHit();
     }
     private void checkHit()
     {

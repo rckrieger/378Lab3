@@ -24,7 +24,7 @@ public class Lstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(pressingKey("left") || pressingKey("a")) checkHit();
+        if(pressingKey("left", "a")) checkHit();
     }
     private void checkHit()
     {
