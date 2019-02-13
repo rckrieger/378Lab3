@@ -23,4 +23,5 @@ public class CollisionActor extends AnimatedActor
     {
         ((DDRWorld)world).getCollisionActors().add(this);
     } 
+
 }

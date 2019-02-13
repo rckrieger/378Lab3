@@ -7,7 +7,7 @@ import java.util.Random;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DDRWorld extends ScrollingWorld
+public class DDRWorld extends CollisionWorld
 {
     /** The number of lives the player starts with */
     public static final int STARTLIVES = 5;
