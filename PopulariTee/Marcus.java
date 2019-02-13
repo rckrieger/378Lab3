@@ -22,6 +22,9 @@ public class Marcus extends CoolActor
     private int idling = 0;
     private int idleCycle = 20*imageScale;
     public boolean DDRmode = false;
+    public int theatreScore;
+    public int jocksScore;
+    public int gothsScore;
     
     public Marcus()
     {

@@ -24,6 +24,10 @@ public class ScrollingWorld extends World
     public int speed;
     protected ScrollingWorld parentWorld;
     
+    public Marcus getMarcus(){
+        return marcus;
+    }
+    
     public ScrollingWorld(int width, int height, int gridSize, boolean bounded)
     {
         super(width, height, gridSize, bounded);

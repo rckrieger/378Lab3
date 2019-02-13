@@ -33,6 +33,10 @@ public class ArrowGenerator extends Actor
                     insertArrow();
                 }
             }
+            else
+            {
+                world.getMarcus().theatreScore = world.getScore();
+            }
         }
     } 
     public void insertArrow(){
