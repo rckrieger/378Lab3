@@ -37,6 +37,9 @@ public class Gym extends ScrollingWorld
         addObject(door2, 2107, 283);
         
         Athlete Jim = new Athlete();
+        image = Jim.getImage();
+        image.scale(image.getWidth()*3, image.getHeight()*3);
+        Jim.setImage(image);
         addObject(Jim, 120, 600);
 
         Goth goth = new Goth();
