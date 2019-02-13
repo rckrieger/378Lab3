@@ -8,12 +8,114 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BasketBall extends BallPhysics
 {
+    private double xspeed;
+    private double yspeed;
+    /** The force on the ball due to gravity */
+    public static final double GRAVITY = 0.5;
+    private MyWorld world;
+    
     /**
-     * Act - do whatever the BasketBall wants to do. This method is called whenever
+     * Create a new ball
+     */
+    public BasketBall()
+    {
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth()/3, image.getHeight()/3);
+        setImage(image);
+        reset();
+    }
+    
+    /**
+     * Called when the Ball is added to the world
+     */
+    public void addedToWorld (World world)
+    {
+        this.world = (MyWorld) world;
+    }
+    
+    /**
+     * Sets the speed of the ball to 0
+     */
+    public void reset()
+    {
+        xspeed = 0;
+        yspeed = 0;
+    }
+    
+        /**
+     * Steps the ball goes through continuously
+     * Act - do whatever the Cheque wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
+    public void act()
     {
-        // Add your action code here.
-    }    
+        try {
+            arrowKeys();
+            move();
+            checkCoins();
+            checkWall();
+            checkWin();
+        }
+        catch(IllegalStateException ex) {}
+        catch(NullPointerException ex) {}
+    }
+    
+    private void checkWall()
+    {
+        if(getX()<=0) {
+            xspeed *= -1;
+            setLocation(getX()+3, getY());
+            ((MyWorld)getWorld()).playSound("sounds/bounce.wav");
+        }
+        else if(getX()>world.getWidth()-60) {
+            WinGym w = new WinGym();
+            Greenfoot.setWorld(w);
+        }
+        }
+        else if(getY()>=750) {
+            yspeed *= -1;
+            setLocation(getX(), getY()+3);
+            ((MyWorld)getWorld()).playSound("sounds/bounce.wav");
+        }
+    }
+    /**
+     * Check if we are intersecting with any coins
+     */
+    private void checkCoins()
+    {
+        Coin coin = (Coin)getOneIntersectingObject(Coin.class);
+        if(coin != null)
+        {
+            world.addCoin();
+            world.removeObject(coin);
+        }
+        //         ((MyWorld)getWorld()).playSound("sounds/coin.wav");
+
+    }
+    
+    /**
+     * Check if we've won (hit the goal)
+     */
+    private void checkWin()
+    {
+    //    if(getOneIntersectingObject(Goal.class)!=null) world.won();
+    }
+   
+    /**
+     * Move the ball
+     */
+    private void move()
+    {
+        setLocation((int)(getX()+xspeed), (int)(getY()+yspeed));
+        yspeed += GRAVITY;
+    }
+  
+     /**
+     * Control the ball using the arrow keys
+     */
+    private void arrowKeys()
+    {
+        if(Greenfoot.isKeyDown("left")) xspeed -= 0.5;
+        if(Greenfoot.isKeyDown("right")) xspeed += 0.5;
+    }   
 }
