@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
@@ -21,14 +22,13 @@ public class ChallengeGym extends CollisionWorld
     
     public void addActors()
     {
-        BasketBall ball = new BasketBall();
-        Banana ban1 = new Banana();
-        Banana ban2 = new Banana();
-        Banana ban3 = new Banana();
-        addObject(ban1, 200, 700);
-        addObject(ban2, 600, 700);
-        addObject(ban3, 800, 700);
-        addObject(ball, 70, 70);
+        addObject(new Banana(), 300, 700);
+        addObject(new Banana(), 600, 700);
+        addObject(new Banana(), 800, 700);
+        addObject(new Banana(), 1100, 700);
+        addObject(new Banana(), 1400, 700);
+        addObject(new Banana(), 1500, 700);
+        addObject(new BasketBall(), 70, 70);
 
     }
 

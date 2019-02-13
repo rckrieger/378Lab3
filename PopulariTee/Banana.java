@@ -14,7 +14,7 @@ public class Banana extends CollisionActor
      */
     public void act() 
     {
-    
+        checkForTripping();
     }  
     public Banana()
     {
