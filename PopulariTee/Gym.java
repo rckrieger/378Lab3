@@ -36,10 +36,20 @@ public class Gym extends ScrollingWorld
         door2.setImage(image);
         addObject(door2, 2107, 283);
         
-       Athlete Jim = new Athlete();
-       addObject(Jim, 120, 600);
+        Athlete Jim = new Athlete();
+        addObject(Jim, 120, 600);
 
+        Goth goth = new Goth();
+        image = goth.getImage();
+        image.scale(image.getWidth()*imageScale/2, image.getHeight()*imageScale/2);
+        goth.setImage(image);
+        addObject(goth, 2300, 500);
         
+        Gothette gothette = new Gothette();
+        image = gothette.getImage();
+        image.scale(image.getWidth()*imageScale/2, image.getHeight()*imageScale/2);
+        gothette.setImage(image);
+        addObject(gothette, 2500, 600);
     }
     
 }

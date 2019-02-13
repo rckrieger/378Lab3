@@ -154,6 +154,10 @@ public class Marcus extends CoolActor
             {
                 idling = 0;
             }
+            if (wearing == null)
+            {
+                return "stand";
+            }
             switch (wearing.colorText)
             {
                 case "red":
@@ -189,19 +193,19 @@ public class Marcus extends CoolActor
                         (getY() < down && dY >= 0));
         if (dX > 0 || dY > 0)
         {
-            noIntersect &= (getOneObjectAtOffset(dX+w, dY+h, Wall.class) == null);
+            noIntersect &= (getOneObjectAtOffset(dX+w, dY+h, Gothette.class) == null);
         }
         if (dX > 0 || dY < 0)
         {
-            noIntersect &= (getOneObjectAtOffset(dX+w, dY-h, Wall.class) == null);
+            noIntersect &= (getOneObjectAtOffset(dX+w, dY-h, Gothette.class) == null);
         }
         if (dX < 0 || dY < 0)
         {
-            noIntersect &= (getOneObjectAtOffset(dX-w, dY-h, Wall.class) == null);
+            noIntersect &= (getOneObjectAtOffset(dX-w, dY-h, Gothette.class) == null);
         }
         if (dX < 0 || dY > 0)
         {
-            noIntersect &= (getOneObjectAtOffset(dX-w, dY+h, Wall.class) == null);
+            noIntersect &= (getOneObjectAtOffset(dX-w, dY+h, Gothette.class) == null);
         }
         return noIntersect;
     }
@@ -210,8 +214,8 @@ public class Marcus extends CoolActor
     {
         int x = getX();
         int width = getWorld().getWidth();
-        int lower = width * 2 / 10;
-        int upper = width * 8 / 10;
+        int lower = width * 4 / 10;
+        int upper = width * 6 / 10;
         int maxWidth = ((ScrollingWorld)this.getWorld()).getWorldWidth();
         if (x > upper)
         {

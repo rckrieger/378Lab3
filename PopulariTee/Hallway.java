@@ -72,8 +72,8 @@ public class Hallway extends ScrollingWorld
         Shirt shirtYellow = new Shirt("yellow", Color.YELLOW);
         addObject(shirtYellow, 1000, 600);
 
-        Shirt shirtGreen = new Shirt("green", Color.GREEN);
-        addObject(shirtGreen, 1250, 600);
+        Shirt shirtPurple = new Shirt("purple", new Color(180, 60, 200));
+        addObject(shirtPurple, 1250, 600);
 
         Shirt shirtBlack = new Shirt("black", Color.BLACK);
         addObject(shirtBlack, 1500, 600);
