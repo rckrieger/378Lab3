@@ -8,26 +8,6 @@ import java.util.ArrayList;
  */
 public class ChallengeGym extends CollisionWorld
 {
-    public static final GreenfootSound sound = new GreenfootSound("bounce.wav");
-
-    private int worldX, worldY, worldWidth, worldHeight;
-
-    public void setWorldDimensions(int x, int y, int width, int height)
-    {
-        worldX = x;
-        worldY = y;
-        worldWidth = width;
-        worldHeight = height;
-    }
-    public int getWorldWidth()
-    {
-        return worldWidth;
-    }
-
-    public int getWorldHeight()
-    {
-        return worldHeight;
-    }
 
     /**
      * Constructor for objects of class ChallengeGym.
@@ -37,8 +17,8 @@ public class ChallengeGym extends CollisionWorld
     {
         super(1024, 768, 1, false); 
         addActors();
-        worldWidth = getWidth();
-        worldHeight = getHeight();
+        worldWidth = super.getWidth();
+        worldHeight = super.getHeight();
 
     }
     

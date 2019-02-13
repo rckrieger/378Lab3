@@ -14,6 +14,59 @@ public class CollisionWorld extends ScrollingWorld
      * 
      */
     private final ArrayList<CollisionActor> allCollisionActors;
+        public static final GreenfootSound sound = new GreenfootSound("bounce.wav");
+
+    private int worldX, worldY, worldWidth, worldHeight;
+    private int cameraOffsetX, cameraOffsetY;
+    
+    public int getCameraX()
+    {
+        return cameraOffsetX;
+    }
+
+    public int getCameraY()
+    {
+        return cameraOffsetY;
+    }
+
+    public void setCameraX(int x)
+    {
+        cameraOffsetX = x;
+    }
+
+    public void setCameraY(int y)
+    {
+        cameraOffsetY = y;
+    }
+
+    public void setWorldDimensions(int x, int y, int width, int height)
+    {
+        worldX = x;
+        worldY = y;
+        worldWidth = width;
+        worldHeight = height;
+    }
+
+    public int getWorldX()
+    {
+        return worldX;
+    }
+
+    public int getWorldY()
+    {
+        return worldY;
+    }
+
+    public int getWorldWidth()
+    {
+        return worldWidth;
+    }
+
+    public int getWorldHeight()
+    {
+        return worldHeight;
+    }
+
     @Override
     public void removeObject(Actor object) 
     {

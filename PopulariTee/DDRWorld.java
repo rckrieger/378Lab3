@@ -16,11 +16,10 @@ public class DDRWorld extends CollisionWorld
     /** The time to wait between each level */
     public static final int DELAY = 30;
     private int score = 0;
-    private int cameraOffsetX, cameraOffsetY;
-    private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
     public boolean DDRmode = false;
     public int DDRspeed = 44;
+    public int worldWidth, worldHeight;
     public GreenfootSound DDRsong = new GreenfootSound("DanceSong.mp3");
     //private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
     /**
@@ -38,8 +37,8 @@ public class DDRWorld extends CollisionWorld
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         this.marcusX = 900;
         this.marcusY = 500;
-        worldWidth = getWidth();
-        worldHeight = getHeight();
+        worldWidth = super.getWidth();
+        worldHeight = super.getHeight();
         Background bg = (Background)(new DDRBackground());
         this.boundingBG = bg;
         addObject(bg, bg.getImage().getWidth()/2, bg.getImage().getHeight()/2);
@@ -67,54 +66,6 @@ public class DDRWorld extends CollisionWorld
     public void subtractPoint()
     {
         score -= 5;
-    }
-
-    public int getCameraX()
-    {
-        return cameraOffsetX;
-    }
-
-    public int getCameraY()
-    {
-        return cameraOffsetY;
-    }
-
-    public void setCameraX(int x)
-    {
-        cameraOffsetX = x;
-    }
-
-    public void setCameraY(int y)
-    {
-        cameraOffsetY = y;
-    }
-
-    public void setWorldDimensions(int x, int y, int width, int height)
-    {
-        worldX = x;
-        worldY = y;
-        worldWidth = width;
-        worldHeight = height;
-    }
-
-    public int getWorldX()
-    {
-        return worldX;
-    }
-
-    public int getWorldY()
-    {
-        return worldY;
-    }
-
-    public int getWorldWidth()
-    {
-        return worldWidth;
-    }
-
-    public int getWorldHeight()
-    {
-        return worldHeight;
     }
 
     public void addActors() {
