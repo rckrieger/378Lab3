@@ -17,6 +17,22 @@ public class ScrollingActor extends Actor
         // Add your action code here.
     }
     
+    protected void checkScroll(int deltaX)
+    {
+        int x = getX();
+        int width = getWorld().getWidth();
+        int lower = width * 4 / 10;
+        int upper = width * 6 / 10;
+        if (x > upper)
+        {
+            ((ScrollingWorld)getWorld()).scroll(-deltaX);
+        }
+        else if (x < lower)
+        {
+            ((ScrollingWorld)getWorld()).scroll(deltaX);
+        }
+    }
+    
     public void scroll(int scrollChange)
     {
         this.setLocation(this.getX()+scrollChange, this.getY());

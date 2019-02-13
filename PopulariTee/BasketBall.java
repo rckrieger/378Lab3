@@ -13,7 +13,8 @@ public class BasketBall extends BallPhysics
     /** The force on the ball due to gravity */
     public static final double GRAVITY = 0.4;
     private ChallengeGym world;
-    
+    private static final int SCROLL_WIDTH = 160;
+    int absoluteScroll;
     /**
      * Create a new ball
      */
@@ -23,6 +24,7 @@ public class BasketBall extends BallPhysics
         image.scale(image.getWidth()/4, image.getHeight()/4);
         setImage(image);
         reset();
+        absoluteScroll = 0;
     }
     
     /**
@@ -54,6 +56,7 @@ public class BasketBall extends BallPhysics
             move();
             checkWall();
             checkWin();
+            checkScroll((int)xspeed);
         }
         catch(IllegalStateException ex) {}
         catch(NullPointerException ex) {}
@@ -68,7 +71,12 @@ public class BasketBall extends BallPhysics
         }
         else if(getY()>=750) {
             yspeed *= -1;
-            setLocation(getX(), getY()+ 5);
+            setLocation(getX(), 749);
+            ((ChallengeGym)getWorld()).sound.play();
+        }
+        else if(getY()<=200) {
+            yspeed *= -1;
+            setLocation(getX(), 201);
             ((ChallengeGym)getWorld()).sound.play();
         }
     }
@@ -78,7 +86,7 @@ public class BasketBall extends BallPhysics
      */
     private void checkWin()
     {
-        if(getX()>world.getWidth()-120) {
+        if(getX()>900) {
             WinGym w = new WinGym();
             Greenfoot.setWorld(w);
         }
@@ -91,14 +99,15 @@ public class BasketBall extends BallPhysics
     {
         setLocation((int)(getX()+xspeed), (int)(getY()+yspeed));
         yspeed += GRAVITY;
-    }
+        xspeed += (xspeed>0) ? -.01: .01;
+     }
   
      /**
      * Control the ball using the arrow keys
      */
     private void arrowKeys()
     {
-        if(Greenfoot.isKeyDown("left")) xspeed -= 0.5;
-        if(Greenfoot.isKeyDown("right")) xspeed += 0.5;
+        if(Greenfoot.isKeyDown("left") && xspeed > -7) xspeed -= 0.5;
+        if(Greenfoot.isKeyDown("right") && xspeed < 7) xspeed += 0.5;
     }   
 }

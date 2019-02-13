@@ -38,7 +38,7 @@ public class Marcus extends CoolActor
     {
         interact();
         changeSpeed();
-        checkScroll();
+        checkScroll(deltaX);
         moveCharacter();
     }
     
@@ -230,23 +230,6 @@ public class Marcus extends CoolActor
             noIntersect &= (getOneObjectAtOffset(dX-w, dY+h, Gothette.class) == null);
         }
         return noIntersect;
-    }
-    
-    private void checkScroll()
-    {
-        int x = getX();
-        int width = getWorld().getWidth();
-        int lower = width * 4 / 10;
-        int upper = width * 6 / 10;
-        int maxWidth = ((ScrollingWorld)this.getWorld()).getWorldWidth();
-        if (x > upper)
-        {
-            ((ScrollingWorld)getWorld()).scroll(-deltaX);
-        }
-        else if (x < lower)
-        {
-            ((ScrollingWorld)getWorld()).scroll(deltaX);
-        }
     }
     
     private void makeAnimations()
