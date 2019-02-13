@@ -24,7 +24,7 @@ public class Rstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(pressingKey("right")) checkHit();
+        if(pressingKey("right") || pressingKey("d")) checkHit();
     }
     private void checkHit()
     {
