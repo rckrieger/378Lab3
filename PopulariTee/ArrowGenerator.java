@@ -42,6 +42,13 @@ public class ArrowGenerator extends Actor
                 world.removeActors();
                 Greenfoot.setSpeed(world.speed);
                 world.bgMusic.play();
+                if (world.marcus.theatreScore > 100)
+                {
+                    SpeechBubble congrats = new SpeechBubble("Nice moves!\nI found this in the back.\nWant it?", getWorld().getObjects(Drama.class).get(0), 22, Color.BLACK, 7);
+                    getWorld().addObject(congrats, 0, 0);
+                    Shirt shirtBlack = new Shirt("black", Color.BLACK);
+                    world.addObject(shirtBlack, 250, 600);
+                }
             }
         }
     } 
