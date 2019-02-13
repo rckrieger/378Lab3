@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class ChallengeGym extends World
 {
-    private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
+    public static final GreenfootSound sound = new GreenfootSound("bounce.wav");
 
     private int worldX, worldY, worldWidth, worldHeight;
 

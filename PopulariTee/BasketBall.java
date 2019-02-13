@@ -64,7 +64,7 @@ public class BasketBall extends BallPhysics
         if(getX()<=0) {
             xspeed *= -1;
             setLocation(getX()+3, getY());
-            ((ChallengeGym)getWorld()).playSound("sounds/bounce.wav");
+            ((ChallengeGym)getWorld()).sound.play();
         }
         else if(getX()>world.getWidth()-60) {
             WinGym w = new WinGym();
@@ -73,7 +73,7 @@ public class BasketBall extends BallPhysics
         else if(getY()>=750) {
             yspeed *= -1;
             setLocation(getX(), getY()+3);
-            ((ChallengeGym)getWorld()).playSound("sounds/bounce.wav");
+            ((ChallengeGym)getWorld()).sound.play();
         }
     }
     
