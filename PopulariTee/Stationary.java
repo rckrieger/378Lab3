@@ -24,9 +24,9 @@ public class Stationary extends Arrow
     {
     }
     
-    protected boolean pressingKey(String direction)
+    protected boolean pressingKey(String dir1, String dir2)
     {
-        boolean currentlyPressing = Greenfoot.isKeyDown(direction);
+        boolean currentlyPressing = Greenfoot.isKeyDown(dir1) || Greenfoot.isKeyDown(dir2);
         if(!alreadyPressing && currentlyPressing)
         {
             alreadyPressing = true;

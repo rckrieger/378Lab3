@@ -24,7 +24,7 @@ public class Dstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(pressingKey("down") || pressingKey("s")) checkHit();
+        if(pressingKey("down", "s")) checkHit();
     }
     private void checkHit()
     {

@@ -21,9 +21,12 @@ public class Score extends Actor
     public void act() 
     {
         // Add your action code here.
-        String scoreValue = Integer.toString(world.getScore());
-        GreenfootImage temp = new GreenfootImage(scoreValue, 30, Color.RED, null);
-        setImage(temp);
+        if (world.DDRmode)
+        {
+            String scoreValue = Integer.toString(world.getScore());
+            GreenfootImage temp = new GreenfootImage(scoreValue, 30, Color.RED, null);
+            setImage(temp);
+        }
         //temp.drawString(scoreValue, int x, int y)
     }    
 }

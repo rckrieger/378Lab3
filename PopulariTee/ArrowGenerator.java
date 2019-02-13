@@ -37,8 +37,8 @@ public class ArrowGenerator extends Actor
     } 
     public void insertArrow(){
         int directionPicked;
-        directionPicked = randgen.nextInt(6);
-        System.out.println(directionPicked);
+        directionPicked = randgen.nextInt(8);
+        //System.out.println(directionPicked);
         switch (directionPicked) {
             case 1:  world.addObject(new Up(), 375, 0);
                 break;

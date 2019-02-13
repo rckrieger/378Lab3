@@ -33,13 +33,10 @@ public class Marcus extends CoolActor
     
     public void act() 
     {
-        if (!DDRmode)
-        {
-            interact();
-            changeSpeed();
-            checkScroll();
-            moveCharacter();
-        }
+        interact();
+        changeSpeed();
+        checkScroll();
+        moveCharacter();
     }
     
     private void interact()
@@ -194,6 +191,7 @@ public class Marcus extends CoolActor
         int up    = getWorld().getHeight()/2 + overlap*2 - dY;
         int down  = getWorld().getHeight() - overlap*2 - dY;
         boolean noIntersect = true;
+        noIntersect &= !DDRmode;
         noIntersect &= ((getX() > left  && dX <= 0) ||
                         (getX() < right && dX >= 0));
         noIntersect &= ((getY() > up && dY <= 0) ||

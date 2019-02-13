@@ -21,7 +21,7 @@ public class DDRWorld extends ScrollingWorld
     private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
     public boolean DDRmode = false;
-    public int DDRspeed = 40;
+    public int DDRspeed = 50;
     //private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
     /**
      * Create a new world.

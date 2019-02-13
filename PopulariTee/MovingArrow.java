@@ -12,7 +12,8 @@ public class MovingArrow extends PhysicsActor
     private double xspeed;
     private double yspeed;
     /** The force on the ball due to gravity */
-    public static final double GRAVITY = 0.5;
+    public double GRAVITY = 0.4;
+    private double maxSpeed = 10;
     private DDRWorld world;
     
     public MovingArrow()
@@ -20,7 +21,6 @@ public class MovingArrow extends PhysicsActor
         GreenfootImage image = getImage();
         image.scale(image.getWidth()/2, image.getHeight()/2);
         setImage(image);
-        
     }
     /**
      * Called when the Ball is added to the world
@@ -28,6 +28,7 @@ public class MovingArrow extends PhysicsActor
     public void addedToWorld (World world)
     {
         this.world = (DDRWorld) world;
+        this.GRAVITY = new Double(this.world.DDRspeed)/100*GRAVITY;
     }
     
     /**
@@ -90,7 +91,10 @@ public class MovingArrow extends PhysicsActor
     private void move()
     {
         setLocation((int)(getX()), (int)(getY()+yspeed));
-        yspeed += GRAVITY;
+        if (yspeed < maxSpeed)
+        {
+            yspeed += GRAVITY;
+        }
     }
  
      /**
