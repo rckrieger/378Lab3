@@ -15,6 +15,7 @@ public class Gym extends ScrollingWorld
         this.marcusX = 600;
         this.marcusY = 500;
         this.imageScale = 1;
+        setPaintOrder(SpeechBubble.class, Shirt.class, Marcus.class, Athlete.class, Gothette.class, Goth.class, Background.class);
         
         Background bg = (Background)(new GymBackground());
         GreenfootImage image = bg.getImage();

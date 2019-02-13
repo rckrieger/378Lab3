@@ -46,7 +46,12 @@ public class Marcus extends CoolActor
     {
         if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
         {
-            if (getWorld().getClass() == DDRWorld.class && theatreScore == 0)
+            if (isTouching(Athlete.class) && jocksScore == 0)
+            {
+                Athlete Jim = (Athlete)getOneIntersectingObject(Athlete.class);
+                Jim.conversate();
+            }
+            else if (getWorld().getClass() == DDRWorld.class && theatreScore == 0)
             {
                 DDRmode = true;
                 DDRWorld ddr = (DDRWorld)getWorld();

@@ -18,6 +18,8 @@ public class ChallengeGym extends CollisionWorld
     {
         super(1024, 768, 1, false); 
         addActors();
+        this.marcusX = -2000;
+        this.marcusY = -2000;
     }
     
     public void addActors()
