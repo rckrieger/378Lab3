@@ -22,13 +22,12 @@ public class ChallengeGym extends CollisionWorld
     
     public void addActors()
     {
-        addObject(new Banana(), 300, 700);
-        addObject(new Banana(), 600, 700);
+        addObject(new Banana(), 400, 700);
         addObject(new Banana(), 800, 700);
         addObject(new Banana(), 1100, 700);
         addObject(new Banana(), 1400, 700);
         addObject(new Banana(), 1500, 700);
-        addObject(new BasketBall(), 70, 70);
+        addObject(new BasketBall(), 70, 100);
 
     }
 

@@ -11,7 +11,7 @@ public class BasketBall extends BallPhysics
     private double xspeed;
     private double yspeed;
     /** The force on the ball due to gravity */
-    public static final double GRAVITY = 0.5;
+    public static final double GRAVITY = 0.4;
     private ChallengeGym world;
     
     /**
@@ -63,12 +63,12 @@ public class BasketBall extends BallPhysics
     {
         if(getX()<=0) {
             xspeed *= -1;
-            setLocation(getX()+3, getY());
+            setLocation(getX()+5, getY());
             ((ChallengeGym)getWorld()).sound.play();
         }
         else if(getY()>=750) {
             yspeed *= -1;
-            setLocation(getX(), getY()+3);
+            setLocation(getX(), getY()+ 5);
             ((ChallengeGym)getWorld()).sound.play();
         }
     }
@@ -78,11 +78,10 @@ public class BasketBall extends BallPhysics
      */
     private void checkWin()
     {
-        if(getX()>world.getWidth()-60) {
+        if(getX()>world.getWidth()-120) {
             WinGym w = new WinGym();
             Greenfoot.setWorld(w);
         }
-    //    if(getOneIntersectingObject(Goal.class)!=null) world.won();
     }
    
     /**
