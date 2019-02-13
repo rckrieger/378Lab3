@@ -8,31 +8,11 @@ import java.util.ArrayList;
  */
 public class CollisionWorld extends ScrollingWorld
 {
-    protected int cameraOffsetX, cameraOffsetY;
-    public int worldX, worldY, worldWidth, worldHeight;
-    
     private final ArrayList<CollisionActor> allCollisionActors;
-    @Override
-    public void removeObject(Actor object) 
-    {
-        super.removeObject(object);
+        public static final GreenfootSound sound = new GreenfootSound("bounce.wav");
 
-        if(object instanceof CollisionActor)
-        {
-            allCollisionActors.remove(object);
-        }
-    }
-    
-    public ArrayList<CollisionActor> getCollisionActors()
-    {
-        return allCollisionActors;
-    }
-    
-    public CollisionWorld(int x, int y,int z,boolean bool)
-    {
-        super(x, y, z, bool);
-        allCollisionActors = new ArrayList<CollisionActor>();
-    }
+    private int worldX, worldY, worldWidth, worldHeight;
+    private int cameraOffsetX, cameraOffsetY;
     
     public int getCameraX()
     {
@@ -61,7 +41,7 @@ public class CollisionWorld extends ScrollingWorld
         worldWidth = width;
         worldHeight = height;
     }
-    
+
     public int getWorldX()
     {
         return worldX;
@@ -80,5 +60,27 @@ public class CollisionWorld extends ScrollingWorld
     public int getWorldHeight()
     {
         return worldHeight;
+    }
+
+    @Override
+    public void removeObject(Actor object) 
+    {
+        super.removeObject(object);
+
+        if(object instanceof CollisionActor)
+        {
+            allCollisionActors.remove(object);
+        }
+    }
+    
+    public ArrayList<CollisionActor> getCollisionActors()
+    {
+        return allCollisionActors;
+    }
+    
+    public CollisionWorld(int x, int y,int z,boolean bool)
+    {
+        super(x, y, z, bool);
+        allCollisionActors = new ArrayList<CollisionActor>();
     }
 }

@@ -19,6 +19,7 @@ public class DDRWorld extends CollisionWorld
     public long startTime = System.currentTimeMillis();
     public boolean DDRmode = false;
     public int DDRspeed = 44;
+    public int worldWidth, worldHeight;
     public GreenfootSound DDRsong = new GreenfootSound("DanceSong.mp3");
     //private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
     /**
@@ -36,8 +37,8 @@ public class DDRWorld extends CollisionWorld
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         this.marcusX = 900;
         this.marcusY = 500;
-        worldWidth = getWidth();
-        worldHeight = getHeight();
+        worldWidth = super.getWidth();
+        worldHeight = super.getHeight();
         Background bg = (Background)(new DDRBackground());
         this.boundingBG = bg;
         addObject(bg, bg.getImage().getWidth()/2, bg.getImage().getHeight()/2);
@@ -115,7 +116,4 @@ public class DDRWorld extends CollisionWorld
             removeObject(scores.get(0));
         }
     }
-        //SPEECH BUBBLE
-        //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);
-        // addObject(new SpeechBubble("big-bubble.png", forest, -10), 450, 300);
 }
