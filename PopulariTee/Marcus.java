@@ -22,9 +22,9 @@ public class Marcus extends CoolActor
     private int idling = 0;
     private int idleCycle = 20*imageScale;
     public boolean DDRmode = false;
-    public int theatreScore;
-    public int jocksScore;
-    public int gothsScore;
+    public int theatreScore = 0;
+    public int jocksScore = 0;
+    public int gothsScore = 0;
     
     public Marcus()
     {
@@ -46,7 +46,7 @@ public class Marcus extends CoolActor
     {
         if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
         {
-            if (getWorld().getClass() == DDRWorld.class)
+            if (getWorld().getClass() == DDRWorld.class && theatreScore == 0)
             {
                 DDRmode = true;
                 DDRWorld ddr = (DDRWorld)getWorld();

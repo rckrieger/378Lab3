@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=CollisionWorld
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ CollisionWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=object
+comment1.target=void\ removeObject(greenfoot.Actor)
+comment2.params=
+comment2.target=java.util.ArrayList\ getCollisionActors()
+comment3.params=x\ y\ z\ bool
+comment3.target=CollisionWorld(int,\ int,\ int,\ boolean)
+numComments=4

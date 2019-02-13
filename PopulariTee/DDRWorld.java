@@ -7,7 +7,7 @@ import java.util.Random;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DDRWorld extends ScrollingWorld
+public class DDRWorld extends CollisionWorld
 {
     /** The number of lives the player starts with */
     public static final int STARTLIVES = 5;
@@ -16,7 +16,6 @@ public class DDRWorld extends ScrollingWorld
     /** The time to wait between each level */
     public static final int DELAY = 30;
     private int score = 0;
-    private final ArrayList<CollisionActor> allCollisionActors;
     private int cameraOffsetX, cameraOffsetY;
     private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
@@ -30,6 +29,7 @@ public class DDRWorld extends ScrollingWorld
     public int getScore(){
         return score;
     }
+    
     public DDRWorld(ScrollingWorld returnTo)
     {    
         super(1024, 768, 1, false); 
@@ -38,7 +38,6 @@ public class DDRWorld extends ScrollingWorld
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         this.marcusX = 900;
         this.marcusY = 500;
-        allCollisionActors = new ArrayList<CollisionActor>();
         worldWidth = getWidth();
         worldHeight = getHeight();
         Background bg = (Background)(new DDRBackground());
@@ -56,17 +55,7 @@ public class DDRWorld extends ScrollingWorld
         image.scale(image.getWidth()*imageScale/4, image.getHeight()*imageScale/4);
         dramette.setImage(image);
         addObject(dramette, 850, 450);
-        
-        
     }
-
-    /**
-     * Plays a sound if the mute switch is off.
-     */
-   /* public void playSound(String s)
-    {
-        Greenfoot.playSound(s);
-    }*/
 
     /**
      * Adds a coin to the player's score.
@@ -78,22 +67,6 @@ public class DDRWorld extends ScrollingWorld
     public void subtractPoint()
     {
         score -= 5;
-    }
-    
-    public ArrayList<CollisionActor> getCollisionActors()
-    {
-        return allCollisionActors;
-    }
-
-    @Override
-    public void removeObject(Actor object) 
-    {
-        super.removeObject(object);
-
-        if(object instanceof CollisionActor)
-        {
-            allCollisionActors.remove(object);
-        }
     }
 
     public int getCameraX()
@@ -151,9 +124,14 @@ public class DDRWorld extends ScrollingWorld
         Rstat RIGHT = new Rstat();
         Lstat LEFT = new Lstat();
         ArrowGenerator arrowgenerator = new ArrowGenerator();
+        ClassroomDoor exit = new ClassroomDoor(parentWorld);
         Score scoreDisplay  = new Score();
         GreenfootImage image = new GreenfootImage(1,1);
         scoreDisplay.setImage(image);
+        image = exit.getImage();
+        image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);
+        exit.setImage(image);
+        addObject(exit, worldWidth-image.getWidth()/2, worldHeight/2);
         addObject(arrowgenerator, 0, 0);
         addObject(DOWN, 250, 700);
         addObject(UP, 375, 700);

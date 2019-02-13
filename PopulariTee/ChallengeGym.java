@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ChallengeGym extends World
+public class ChallengeGym extends CollisionWorld
 {
     public static final GreenfootSound sound = new GreenfootSound("bounce.wav");
 
@@ -35,16 +35,16 @@ public class ChallengeGym extends World
      */
     public ChallengeGym()
     {
-        super(1024, 768, 1); 
-        allCollisionActors = new ArrayList<CollisionActor>();
+        super(1024, 768, 1, false); 
+        addActors();
         worldWidth = getWidth();
         worldHeight = getHeight();
 
     }
+    
     public void addActors()
     {
         BasketBall ball = new BasketBall();
-
         Banana ban1 = new Banana();
         Banana ban2 = new Banana();
         Banana ban3 = new Banana();
@@ -53,24 +53,6 @@ public class ChallengeGym extends World
         addObject(ban3, 800, 700);
         addObject(ball, 70, 70);
 
-    }
-    
-    public ArrayList<CollisionActor> getCollisionActors()
-    {
-        return allCollisionActors;
-    }
-    private final ArrayList<CollisionActor> allCollisionActors;
-    
-    @Override
-    public void removeObject(Actor object) 
-    {
-        super.removeObject(object);
-
-        if(object instanceof CollisionActor)
-        {
-            allCollisionActors.remove(object);
-            
-        }
     }
 
 }

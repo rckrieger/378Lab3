@@ -21,6 +21,7 @@ public class CollisionActor extends AnimatedActor
     @Override
     protected void addedToWorld(World world)
     {
-        ((DDRWorld)world).getCollisionActors().add(this);
+        ((CollisionWorld)world).getCollisionActors().add(this);
     } 
+
 }
