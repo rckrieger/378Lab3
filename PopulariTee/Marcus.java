@@ -52,6 +52,9 @@ public class Marcus extends CoolActor
                 DDRWorld ddr = (DDRWorld)getWorld();
                 ddr.DDRmode = true;
                 Greenfoot.setSpeed(ddr.DDRspeed);
+                ddr.addActors();
+                ddr.bgMusic.pause();
+                ddr.DDRsong.play();
             }
             else if (isTouching(Door.class))
             {

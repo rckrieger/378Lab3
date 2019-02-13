@@ -24,6 +24,7 @@ public class Right extends MovingArrow
         if (getY() > 768)
         {
             world.removeObject(this);
+            world.subtractPoint();
         }
     }
 }

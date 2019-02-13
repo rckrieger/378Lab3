@@ -24,7 +24,7 @@ public class ArrowGenerator extends Actor
     {
         if (world.DDRmode)
         {
-            if (System.currentTimeMillis() < startTime + 60000)
+            if (System.currentTimeMillis() < startTime + 35000)
             {
                 if (lastTimeAddedArrow + spacing < System.currentTimeMillis())
                 {
@@ -39,7 +39,9 @@ public class ArrowGenerator extends Actor
                 world.getMarcus().theatreScore = world.getScore();
                 world.DDRmode = false;
                 world.getMarcus().DDRmode = false;
+                world.removeActors();
                 Greenfoot.setSpeed(world.speed);
+                world.bgMusic.play();
             }
         }
     } 

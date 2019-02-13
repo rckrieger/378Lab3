@@ -24,6 +24,7 @@ public class Down extends MovingArrow
         if (getY() > 768)
         {
             world.removeObject(this);
+            world.subtractPoint();
         }
         // Add your action code here.
     } 
