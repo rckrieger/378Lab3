@@ -13,7 +13,12 @@ public class BallPhysics extends CollisionActor
      * Act - do whatever the BallPhysics wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-  
+
+
+    /**
+     * Act - do whatever the CollisionObject wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
 
     public static final float GRAVITY = 0.4f;
     
