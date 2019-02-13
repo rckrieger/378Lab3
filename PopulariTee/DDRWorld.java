@@ -7,7 +7,7 @@ import java.util.Random;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DDRWorld extends World
+public class DDRWorld extends ScrollingWorld
 {
     /** The number of lives the player starts with */
     public static final int STARTLIVES = 5;
@@ -27,15 +27,16 @@ public class DDRWorld extends World
     public int getScore(){
         return score;
     }
-    public DDRWorld()
+    public DDRWorld(ScrollingWorld returnTo)
     {    
-        super(1024, 768, 1);        
+        super(1024, 768, 1, false); 
+        Greenfoot.setSpeed(40);
+        this.parentWorld = returnTo;
         allCollisionActors = new ArrayList<CollisionActor>();
         addActors();
         worldWidth = getWidth();
         worldHeight = getHeight();
         score = 0;
-        prepare();
     }
 
     /**
@@ -139,12 +140,10 @@ public class DDRWorld extends World
         //SPEECH BUBBLE
         //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);
         // addObject(new SpeechBubble("big-bubble.png", forest, -10), 450, 300);
-
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-    private void prepare()
+        
+    public void resumeWorld()
     {
+        Greenfoot.setSpeed(40);
+        bgMusic.play();
     }
 }

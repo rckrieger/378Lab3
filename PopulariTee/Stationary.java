@@ -14,6 +14,7 @@ public class Stationary extends Arrow
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private DDRWorld world;
+    private boolean alreadyPressing = false;
 
     public void addedToWorld (World world)
     {
@@ -21,5 +22,17 @@ public class Stationary extends Arrow
     }
     public void act() 
     {
-    }      
+    }
+    
+    protected boolean pressingKey(String direction)
+    {
+        boolean currentlyPressing = Greenfoot.isKeyDown(direction);
+        if(!alreadyPressing && currentlyPressing)
+        {
+            alreadyPressing = true;
+            return true;
+        }
+        alreadyPressing = currentlyPressing;
+        return false;
+    }
 }

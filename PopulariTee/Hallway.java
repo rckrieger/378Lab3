@@ -22,7 +22,6 @@ public class Hallway extends ScrollingWorld
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1024, 768, 1, false);
-        Greenfoot.setSpeed(60);
         this.marcusX = 400;
         this.marcusY = 600;
         setPaintOrder(Shirt.class, Marcus.class, Door.class, Background.class);

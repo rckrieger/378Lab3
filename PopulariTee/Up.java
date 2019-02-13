@@ -21,5 +21,9 @@ public class Up extends MovingArrow
     {
         // Add your action code here.
         super.act();
+        if (getY() > 768)
+        {
+            world.removeObject(this);
+        }
     }
 }

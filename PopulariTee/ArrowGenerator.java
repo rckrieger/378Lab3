@@ -21,8 +21,7 @@ public class ArrowGenerator extends Actor
     }
     public void act() 
     {
-        Random randgen = new Random();
-        int directionPicked;
+        randgen = new Random();
         if (System.currentTimeMillis() < startTime + 60000)
         {
             if (lastTimeAddedArrow + spacing < System.currentTimeMillis())
@@ -35,7 +34,7 @@ public class ArrowGenerator extends Actor
     } 
     public void insertArrow(){
         int directionPicked;
-        directionPicked = randgen.nextInt(4);
+        directionPicked = randgen.nextInt(6);
         System.out.println(directionPicked);
         switch (directionPicked) {
             case 1:  world.addObject(new Up(), 375, 0);
@@ -44,7 +43,9 @@ public class ArrowGenerator extends Actor
                 break;
             case 3:  world.addObject(new Left(), 120, 0);
                 break;
-            default: world.addObject(new Down(), 250, 0);
+            case 4: world.addObject(new Down(), 250, 0);
+                break;
+            default:
                 break;
         }
     }

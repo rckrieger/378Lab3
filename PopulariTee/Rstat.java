@@ -24,7 +24,7 @@ public class Rstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(Greenfoot.isKeyDown("right")) checkHit();
+        if(pressingKey("right")) checkHit();
     }
     private void checkHit()
     {

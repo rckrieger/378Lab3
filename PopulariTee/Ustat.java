@@ -24,7 +24,7 @@ public class Ustat extends Stationary
     }
     private void arrowKeys()
     {
-        if(Greenfoot.isKeyDown("up")) checkHit();
+        if(pressingKey("up")) checkHit();
     }
     private void checkHit()
     {

@@ -21,6 +21,10 @@ public class Down extends MovingArrow
     public void act() 
     {
         super.act();
+        if (getY() > 768)
+        {
+            world.removeObject(this);
+        }
         // Add your action code here.
     } 
 }

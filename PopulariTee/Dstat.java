@@ -24,7 +24,7 @@ public class Dstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(Greenfoot.isKeyDown("down")) checkHit();
+        if(pressingKey("down")) checkHit();
     }
     private void checkHit()
     {

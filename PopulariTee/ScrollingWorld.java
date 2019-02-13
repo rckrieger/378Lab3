@@ -27,6 +27,7 @@ public class ScrollingWorld extends World
     {
         super(width, height, gridSize, bounded);
         this.imageScale = 5;
+        Greenfoot.setSpeed(60);
     }
     
     public int getImageScale()
@@ -75,6 +76,7 @@ public class ScrollingWorld extends World
         {
             addObject(marcus.wearing, marcusX, marcusY);
         }
+        Greenfoot.setSpeed(60);
         bgMusic.play();
     }
     

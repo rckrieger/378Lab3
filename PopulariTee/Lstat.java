@@ -24,7 +24,7 @@ public class Lstat extends Stationary
     }
     private void arrowKeys()
     {
-        if(Greenfoot.isKeyDown("left")) checkHit();
+        if(pressingKey("left")) checkHit();
     }
     private void checkHit()
     {
