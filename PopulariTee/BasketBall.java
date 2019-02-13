@@ -12,7 +12,7 @@ public class BasketBall extends BallPhysics
     private double yspeed;
     /** The force on the ball due to gravity */
     public static final double GRAVITY = 0.5;
-    private MyWorld world;
+    private ChallengeGym world;
     
     /**
      * Create a new ball
@@ -30,7 +30,7 @@ public class BasketBall extends BallPhysics
      */
     public void addedToWorld (World world)
     {
-        this.world = (MyWorld) world;
+        this.world = (ChallengeGym) world;
     }
     
     /**
@@ -52,7 +52,6 @@ public class BasketBall extends BallPhysics
         try {
             arrowKeys();
             move();
-            checkCoins();
             checkWall();
             checkWin();
         }
@@ -65,32 +64,17 @@ public class BasketBall extends BallPhysics
         if(getX()<=0) {
             xspeed *= -1;
             setLocation(getX()+3, getY());
-            ((MyWorld)getWorld()).playSound("sounds/bounce.wav");
+            ((ChallengeGym)getWorld()).playSound("sounds/bounce.wav");
         }
         else if(getX()>world.getWidth()-60) {
             WinGym w = new WinGym();
             Greenfoot.setWorld(w);
         }
-        }
         else if(getY()>=750) {
             yspeed *= -1;
             setLocation(getX(), getY()+3);
-            ((MyWorld)getWorld()).playSound("sounds/bounce.wav");
+            ((ChallengeGym)getWorld()).playSound("sounds/bounce.wav");
         }
-    }
-    /**
-     * Check if we are intersecting with any coins
-     */
-    private void checkCoins()
-    {
-        Coin coin = (Coin)getOneIntersectingObject(Coin.class);
-        if(coin != null)
-        {
-            world.addCoin();
-            world.removeObject(coin);
-        }
-        //         ((MyWorld)getWorld()).playSound("sounds/coin.wav");
-
     }
     
     /**

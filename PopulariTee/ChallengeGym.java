@@ -41,6 +41,19 @@ public class ChallengeGym extends World
         worldHeight = getHeight();
 
     }
+    public void addActors()
+    {
+        BasketBall ball = new BasketBall();
+
+        Banana ban1 = new Banana();
+        Banana ban2 = new Banana();
+        Banana ban3 = new Banana();
+        addObject(ban1, 200, 700);
+        addObject(ban2, 600, 700);
+        addObject(ban3, 800, 700);
+        addObject(ball, 70, 70);
+
+    }
     
     public ArrayList<CollisionActor> getCollisionActors()
     {
