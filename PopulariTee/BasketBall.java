@@ -11,7 +11,7 @@ public class BasketBall extends BallPhysics
     private double xspeed;
     private double yspeed;
     /** The force on the ball due to gravity */
-    public static final double GRAVITY = 0.4;
+    public static final double GRAVITY = 0.3;
     private ChallengeGym world;
     private static final int SCROLL_WIDTH = 160;
     int absoluteScroll;
@@ -87,8 +87,9 @@ public class BasketBall extends BallPhysics
     private void checkWin()
     {
         if(getX()>900) {
-            WinGym w = new WinGym();
-            Greenfoot.setWorld(w);
+            ScrollingWorld world = (ScrollingWorld)getWorld();
+            WinGym w = new WinGym(world.parentWorld, world.bgMusic);
+            w.bring_to_(world.marcus, world.parentWorld);
         }
     }
    

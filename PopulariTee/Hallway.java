@@ -62,19 +62,13 @@ public class Hallway extends ScrollingWorld
         marcus = main;
         addObject(main, marcusX, marcusY);
 
-        Shirt shirtRed = new Shirt("red", Color.RED);
-        addObject(shirtRed, 1500, 600);
-
         Shirt shirtBlue = new Shirt("blue", Color.BLUE);
         addObject(shirtBlue, 750, 600);
 
-        Shirt shirtYellow = new Shirt("yellow", Color.YELLOW);
-        addObject(shirtYellow, 1000, 600);
-
         Shirt shirtPurple = new Shirt("purple", new Color(180, 60, 200));
-        addObject(shirtPurple, 1250, 600);
+        addObject(shirtPurple, -750, 600);
         
-        SpeechBubble derp = new SpeechBubble("I am what\nI wear!", main, 36, Color.WHITE, 10);
+        SpeechBubble derp = new SpeechBubble("I am what\nI wear!", main, 36, Color.WHITE, 4);
         addObject(derp, 0, 0);
     }
 }

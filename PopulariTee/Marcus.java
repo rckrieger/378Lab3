@@ -22,6 +22,7 @@ public class Marcus extends CoolActor
     private int idling = 0;
     private int idleCycle = 20*imageScale;
     public boolean DDRmode = false;
+    public boolean STOPYOUASSHOLE = false;
     public int theatreScore = 0;
     public int jocksScore = 0;
     public int gothsScore = 0;
@@ -36,10 +37,17 @@ public class Marcus extends CoolActor
     
     public void act() 
     {
-        interact();
-        changeSpeed();
-        checkScroll(deltaX);
-        moveCharacter();
+        if (jocksScore != 0 && theatreScore != 0)
+        {
+            System.out.println("YOU WIN YOU ASSHOLE, NOW MAKE AN ENDSCREEN!");
+        }
+        else if (!STOPYOUASSHOLE)
+        {
+            interact();
+            changeSpeed();
+            checkScroll(deltaX);
+            moveCharacter();
+        }
     }
     
     private void interact()

@@ -31,11 +31,12 @@ public class Athlete extends CoolActor
     {
         if (thisIsDumb > 4)
         {
+            ((ScrollingWorld)getWorld()).marcus.STOPYOUASSHOLE = true;
             ChallengeGym doIt = new ChallengeGym();
             doIt.parentWorld = (ScrollingWorld)getWorld();
             doIt.bring_to_(((ScrollingWorld)getWorld()).marcus, (ScrollingWorld)getWorld());
         }
-        if (speaking)
+        else if (speaking)
         {
             SpeechBubble speak = new SpeechBubble(spoken[thisIsDumb++], this, 22, Color.BLACK, talkTime);
             getWorld().addObject(speak, 0, 0);

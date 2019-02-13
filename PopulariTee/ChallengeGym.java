@@ -28,9 +28,9 @@ public class ChallengeGym extends CollisionWorld
         GreenfootImage image = bg.getImage();
         addObject(bg, image.getWidth()/2, image.getHeight()/2);
         this.boundingBG = bg; 
-      //  addObject(new Banana(), 400, 700);
-      //  addObject(new Banana(), 1100, 700);
-      //  addObject(new Banana(), 1500, 700);
+        this.bgMusic = new GreenfootSound("basketballmusic.mp3");
+        addObject(new Banana(), 300, 700);
+        addObject(new Banana(), 800, 700);
         addObject(new BasketBall(), 70, 210);
 
     }

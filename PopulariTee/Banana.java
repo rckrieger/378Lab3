@@ -27,8 +27,9 @@ public class Banana extends CollisionActor
         BasketBall n = (BasketBall)getOneIntersectingObject(BasketBall.class); 
         if (n!=null)
         {
-            LooseGym w = new LooseGym();
-            Greenfoot.setWorld(w);
+            ScrollingWorld world = (ScrollingWorld)getWorld();
+            LooseGym w = new LooseGym(world.parentWorld, world.bgMusic);
+            w.bring_to_(world.marcus, world.parentWorld);
         }
     } 
 }

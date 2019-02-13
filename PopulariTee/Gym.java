@@ -54,6 +54,9 @@ public class Gym extends ScrollingWorld
         image.scale(image.getWidth()*imageScale/2, image.getHeight()*imageScale/2);
         gothette.setImage(image);
         addObject(gothette, 2500, 600);
+        
+        Shirt shirtRed = new Shirt("red", Color.RED);
+        addObject(shirtRed, 1350, 400);
     }
     
 }

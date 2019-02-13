@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=WinGym
-comment0.text=\n\ Write\ a\ description\ of\ class\ WinGym\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=WinGym()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ WinGym.\n\ \n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ WinGym\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=world\ bgMusic
+comment1.target=WinGym(ScrollingWorld,\ greenfoot.GreenfootSound)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ WinGym.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3
