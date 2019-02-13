@@ -37,7 +37,6 @@ public class ChallengeGym extends CollisionWorld
     {
         super(1024, 768, 1, false); 
         addActors();
-        allCollisionActors = new ArrayList<CollisionActor>();
         worldWidth = getWidth();
         worldHeight = getHeight();
 
@@ -54,24 +53,6 @@ public class ChallengeGym extends CollisionWorld
         addObject(ban3, 800, 700);
         addObject(ball, 70, 70);
 
-    }
-    
-    public ArrayList<CollisionActor> getCollisionActors()
-    {
-        return allCollisionActors;
-    }
-    private final ArrayList<CollisionActor> allCollisionActors;
-    
-    @Override
-    public void removeObject(Actor object) 
-    {
-        super.removeObject(object);
-
-        if(object instanceof CollisionActor)
-        {
-            allCollisionActors.remove(object);
-            
-        }
     }
 
 }
