@@ -20,6 +20,8 @@ public class DDRWorld extends ScrollingWorld
     private int cameraOffsetX, cameraOffsetY;
     private int worldX, worldY, worldWidth, worldHeight;
     public long startTime = System.currentTimeMillis();
+    public boolean DDRmode = false;
+    public int DDRspeed = 40;
     //private static final GreenfootSound sound = new GreenfootSound("bounce.wav");
     /**
      * Create a new world.
@@ -30,8 +32,11 @@ public class DDRWorld extends ScrollingWorld
     public DDRWorld(ScrollingWorld returnTo)
     {    
         super(1024, 768, 1, false); 
-        Greenfoot.setSpeed(40);
+        setPaintOrder(MovingArrow.class, Stationary.class, Shirt.class, Marcus.class, Score.class, Background.class);
         this.parentWorld = returnTo;
+        this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
+        this.marcusX = 900;
+        this.marcusY = 500;
         allCollisionActors = new ArrayList<CollisionActor>();
         addActors();
         worldWidth = getWidth();
@@ -130,20 +135,17 @@ public class DDRWorld extends ScrollingWorld
         Lstat LEFT = new Lstat();
         ArrowGenerator arrowgenerator = new ArrowGenerator();
         Score scoreDisplay  = new Score();
+        Background bg = (Background)(new DDRBackground());
+        this.boundingBG = bg;
+        addObject(bg, bg.getImage().getWidth()/2, bg.getImage().getHeight()/2);
         addObject(arrowgenerator, 0, 0);
-        addObject(DOWN, 250, 600);
-        addObject(UP, 375, 600);
-        addObject(RIGHT, 500, 600);
-        addObject(LEFT, 120, 600);
+        addObject(DOWN, 250, 700);
+        addObject(UP, 375, 700);
+        addObject(RIGHT, 500, 700);
+        addObject(LEFT, 120, 700);
         addObject(scoreDisplay, 850, 100);
     }
         //SPEECH BUBBLE
         //  addObject(new SpeechBubble("play-bubble.png", forest, 1000), -500, -500);
         // addObject(new SpeechBubble("big-bubble.png", forest, -10), 450, 300);
-        
-    public void resumeWorld()
-    {
-        Greenfoot.setSpeed(40);
-        bgMusic.play();
-    }
 }

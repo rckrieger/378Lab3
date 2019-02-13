@@ -18,17 +18,20 @@ public class ArrowGenerator extends Actor
     public void addedToWorld (World world)
     {
         this.world = (DDRWorld) world;
+        randgen = new Random();
     }
     public void act() 
     {
-        randgen = new Random();
-        if (System.currentTimeMillis() < startTime + 60000)
+        if (world.DDRmode)
         {
-            if (lastTimeAddedArrow + spacing < System.currentTimeMillis())
+            if (System.currentTimeMillis() < startTime + 60000)
             {
-                System.out.println("last added at: " + lastTimeAddedArrow + "\n but now current time is " + System.currentTimeMillis());
-                lastTimeAddedArrow = System.currentTimeMillis();
-                insertArrow();
+                if (lastTimeAddedArrow + spacing < System.currentTimeMillis())
+                {
+                    //System.out.println("last added at: " + lastTimeAddedArrow + "\n but now current time is " + System.currentTimeMillis());
+                    lastTimeAddedArrow = System.currentTimeMillis();
+                    insertArrow();
+                }
             }
         }
     } 

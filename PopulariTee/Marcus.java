@@ -21,7 +21,7 @@ public class Marcus extends CoolActor
     private boolean spacing = false;
     private int idling = 0;
     private int idleCycle = 20*imageScale;
-    public boolean ddrmode = false;
+    public boolean DDRmode = false;
     
     public Marcus()
     {
@@ -33,7 +33,7 @@ public class Marcus extends CoolActor
     
     public void act() 
     {
-        if (!ddrmode)
+        if (!DDRmode)
         {
             interact();
             changeSpeed();
@@ -46,7 +46,14 @@ public class Marcus extends CoolActor
     {
         if (!spacing && (Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")))
         {
-            if (isTouching(Door.class))
+            if (getWorld().getClass() == DDRWorld.class)
+            {
+                DDRmode = true;
+                DDRWorld ddr = (DDRWorld)getWorld();
+                ddr.DDRmode = true;
+                Greenfoot.setSpeed(ddr.DDRspeed);
+            }
+            else if (isTouching(Door.class))
             {
                 Door door = (Door)getOneIntersectingObject(Door.class);
                 door.enter(this);

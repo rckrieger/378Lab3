@@ -23,9 +23,6 @@ public class Classroom extends ScrollingWorld
         this.bgMusic = new GreenfootSound("PopulariTee Theme.mp3");
         addObject(bg, image.getWidth()/2, image.getHeight()/2);
         
-        Marcus main = new Marcus();
-        addObject(main, marcusX, marcusY);
-        
         DeskRow desks = new DeskRow();
         image = desks.getImage();
         image.scale(image.getWidth()*imageScale, image.getHeight()*imageScale);

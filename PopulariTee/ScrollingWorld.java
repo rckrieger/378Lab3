@@ -21,13 +21,15 @@ public class ScrollingWorld extends World
     protected int marcusY;
     public Background boundingBG;
     public GreenfootSound bgMusic;
+    public int speed;
     protected ScrollingWorld parentWorld;
     
     public ScrollingWorld(int width, int height, int gridSize, boolean bounded)
     {
         super(width, height, gridSize, bounded);
         this.imageScale = 5;
-        Greenfoot.setSpeed(60);
+        this.speed = 60;
+        Greenfoot.setSpeed(speed);
     }
     
     public int getImageScale()
@@ -76,7 +78,7 @@ public class ScrollingWorld extends World
         {
             addObject(marcus.wearing, marcusX, marcusY);
         }
-        Greenfoot.setSpeed(60);
+        Greenfoot.setSpeed(speed);
         bgMusic.play();
     }
     
